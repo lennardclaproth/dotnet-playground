@@ -32,7 +32,7 @@ namespace CiCd.JokeApi.Tests
             // Assert
             response.EnsureSuccessStatusCode(); // 200-299 status code
             var jokes = await response.Content.ReadAsStringAsync();
-            Assert.Contains("Why don't skeletons fight each other? They don't have the guts.", jokes);
+            Assert.Contains("Why don't skeletons fight each other? They don't have the guts..", jokes);
             Assert.Contains("What do you call fake spaghetti? An impasta!", jokes);
         }
     }

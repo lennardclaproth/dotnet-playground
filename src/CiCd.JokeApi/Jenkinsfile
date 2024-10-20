@@ -4,7 +4,8 @@ pipeline {
     environment {
         DOTNET_VERSION = '8.0.10' // Set this to the version of .NET you're using
         DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = 'true'
-        PROJECT_PATH = 'src/CiCd.JokeApi/CiCd.JokeApi.csproj' // Define the project path
+        PROJECT_PATH = 'src/CiCd.JokeApi/CiCd.JokeApi.csproj' // Path to the main project
+        TEST_PROJECT_PATH = 'src/CiCd.JokeApi.Tests/CiCd.JokeApi.Tests.csproj' // Path to the test project
     }
 
     tools {
@@ -22,28 +23,31 @@ pipeline {
 
         stage('Restore') {
             steps {
-                // Restore dependencies, use the project path variable
+                // Restore dependencies for both the main and test projects
                 sh "dotnet restore ${PROJECT_PATH}"
+                sh "dotnet restore ${TEST_PROJECT_PATH}"
             }
         }
 
         stage('Build') {
             steps {
-                // Build the project, use the project path variable
+                // Build the main project
                 sh "dotnet build ${PROJECT_PATH} --configuration Release --no-restore"
+                // Optionally, also build the test project (can be done before running tests)
+                sh "dotnet build ${TEST_PROJECT_PATH} --configuration Release --no-restore"
             }
         }
 
         stage('Test') {
             steps {
-                // Run unit tests, use the project path variable
-                sh "dotnet test ${PROJECT_PATH} --no-restore --verbosity normal"
+                // Run unit tests, target the test project
+                sh "dotnet test ${TEST_PROJECT_PATH} --no-restore --verbosity normal"
             }
         }
 
         stage('Publish') {
             steps {
-                // Publish build artifacts, use the project path variable
+                // Publish build artifacts, target the main project
                 sh "dotnet publish ${PROJECT_PATH} --configuration Release --no-build -o ./publish"
             }
         }
