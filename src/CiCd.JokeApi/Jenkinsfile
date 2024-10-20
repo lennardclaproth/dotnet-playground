@@ -17,7 +17,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Pull the latest code from your Git repository
-                git branch: 'master', url: 'https://github.com/lennardclaproth/dotnet-playground'
+                git branch: 'feature/ci-cd', url: 'https://github.com/lennardclaproth/dotnet-playground'
             }
         }
 
