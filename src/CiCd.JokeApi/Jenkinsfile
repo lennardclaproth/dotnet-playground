@@ -6,15 +6,15 @@ pipeline {
     }
 
     tools {
-        // Install the .NET SDK on the Jenkins agent
-        dotnet "${DOTNET_VERSION}"
+        // Correct tool type for .NET SDK
+        dotnetsdk "${DOTNET_VERSION}"
     }
 
     stages {
         stage('Checkout') {
             steps {
                 // Pull the latest code from your Git repository
-                git branch: 'master', url: 'https://github.com/lennardclaproth/dotnet-playground.git'
+                git branch: 'master', url: 'https://github.com/lennardclaproth/dotnet-playground'
             }
         }
 
