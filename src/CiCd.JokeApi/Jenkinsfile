@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOTNET_VERSION = '8.0.10' // Set this to the version of .NET you're using
+        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = 'true'
     }
 
     tools {
