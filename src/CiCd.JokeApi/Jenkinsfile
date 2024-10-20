@@ -34,7 +34,67 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
+            steps {pipeline {
+                       agent any
+                   
+                       environment {
+                           DOTNET_VERSION = '8.0.10' // Set this to the version of .NET you're using
+                           DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = 'true'
+                           PROJECT_PATH = 'src/CiCd.JokeApi/CiCd.JokeApi.csproj' // Define the project path
+                       }
+                   
+                       tools {
+                           // Correct tool type for .NET SDK
+                           dotnetsdk "${DOTNET_VERSION}"
+                       }
+                   
+                       stages {
+                           stage('Checkout') {
+                               steps {
+                                   // Pull the latest code from your Git repository
+                                   git branch: 'master', url: 'https://github.com/lennardclaproth/dotnet-playground'
+                               }
+                           }
+                   
+                           stage('Restore') {
+                               steps {
+                                   // Restore dependencies, use the project path variable
+                                   sh "dotnet restore ${PROJECT_PATH}"
+                               }
+                           }
+                   
+                           stage('Build') {
+                               steps {
+                                   // Build the project, use the project path variable
+                                   sh "dotnet build ${PROJECT_PATH} --configuration Release --no-restore"
+                               }
+                           }
+                   
+                           stage('Test') {
+                               steps {
+                                   // Run unit tests, use the project path variable
+                                   sh "dotnet test ${PROJECT_PATH} --no-restore --verbosity normal"
+                               }
+                           }
+                   
+                           stage('Publish') {
+                               steps {
+                                   // Publish build artifacts, use the project path variable
+                                   sh "dotnet publish ${PROJECT_PATH} --configuration Release --no-build -o ./publish"
+                               }
+                           }
+                       }
+                   
+                       post {
+                           always {
+                               cleanWs() // Clean workspace after the job is done
+                           }
+                           failure {
+                               echo "The build has failed!"
+                           }
+                       }
+                   }
+
                 // Run unit tests and integration tests
                 sh 'dotnet test --no-restore --verbosity normal'
             }
