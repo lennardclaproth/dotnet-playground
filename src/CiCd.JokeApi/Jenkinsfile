@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOTNET_VERSION = '8.0' // Set this to the version of .NET you're using
+        DOTNET_VERSION = '8.0.10' // Set this to the version of .NET you're using
     }
 
     tools {
