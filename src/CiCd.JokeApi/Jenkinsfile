@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    environment {
+        DOTNET_VERSION = '8.0' // Set this to the version of .NET you're using
+    }
+
+    tools {
+        // Install the .NET SDK on the Jenkins agent
+        dotnet "${DOTNET_VERSION}"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Pull the latest code from your Git repository
+                git branch: 'master', url: 'https://github.com/lennardclaproth/dotnet-playground.git'
+            }
+        }
+
+        stage('Restore') {
+            steps {
+                // Restore dependencies
+                sh 'dotnet restore'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build the project
+                sh 'dotnet build --configuration Release --no-restore'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run unit tests and integration tests
+                sh 'dotnet test --no-restore --verbosity normal'
+            }
+        }
+
+        stage('Publish') {
+            steps {
+                // Optionally publish build artifacts (e.g., for deployment purposes)
+                sh 'dotnet publish --configuration Release --no-build -o ./publish'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up after build
+            cleanWs()
+        }
+        failure {
+            // Notify on failure (optional)
+            echo "The build has failed!"
+        }
+    }
+}
