@@ -49,12 +49,12 @@ pipeline {
 
     post {
         always {
+            // Ensure cleanWs() is inside a node block
             node {
                 cleanWs() // Clean workspace after the job is done
             }
         }
         failure {
-            // Notify on failure (optional)
             echo "The build has failed!"
         }
     }
