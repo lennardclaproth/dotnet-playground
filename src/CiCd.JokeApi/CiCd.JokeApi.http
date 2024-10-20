@@ -1,0 +1,6 @@
+@CiCd.JokeApi_HostAddress = http://localhost:5128
+
+GET {{CiCd.JokeApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

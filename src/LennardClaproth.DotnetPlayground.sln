@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{32D7C75E-8594-43F2-BCC1-F4EAE71E5F85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithms", "Algorithms", "{B241C735-967C-4D98-8A7E-70E2B625A9A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructures", "DataStructures", "{B359F411-470E-4CDD-9C1A-C21F572E749A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architectures", "Architectures", "{C91F90D0-F2A5-4A51-AD5E-36ABD5C5DFF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.State", "DesignPatterns.State\DesignPatterns.State.csproj", "{76FEC418-FBEC-4B41-B14D-3B1FBF848FBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Behavioral", "Behavioral", "{A61D0C00-8DE7-47B8-97F6-1B80E1713D19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Structural", "Structural", "{4AC587BE-CB33-407E-804E-EB637D88A04C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.Flyweight", "DesignPatterns.Flyweight\DesignPatterns.Flyweight.csproj", "{2306AC5F-8407-4963-8C53-22C1EB7EF5B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CI/CD", "CI/CD", "{F92731CC-0237-414A-B08F-C2E96873730B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CiCd.JokeApi", "CiCd.JokeApi\CiCd.JokeApi.csproj", "{E1370D78-AD96-4CD8-8A67-C2493D558EC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CiCd.JokeApi.Tests", "CiCd.JokeApi.Tests\CiCd.JokeApi.Tests.csproj", "{8FF94DF6-03AA-40A9-98C9-68382B0BBF9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Iac", "Iac", "{CFFE94AB-D377-4923-AB21-70642745659B}"
+	ProjectSection(SolutionItems) = preProject
+		..\iac\docker-compose.yml = ..\iac\docker-compose.yml
+		..\iac\.env = ..\iac\.env
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A61D0C00-8DE7-47B8-97F6-1B80E1713D19} = {32D7C75E-8594-43F2-BCC1-F4EAE71E5F85}
+		{76FEC418-FBEC-4B41-B14D-3B1FBF848FBE} = {A61D0C00-8DE7-47B8-97F6-1B80E1713D19}
+		{4AC587BE-CB33-407E-804E-EB637D88A04C} = {32D7C75E-8594-43F2-BCC1-F4EAE71E5F85}
+		{2306AC5F-8407-4963-8C53-22C1EB7EF5B7} = {4AC587BE-CB33-407E-804E-EB637D88A04C}
+		{E1370D78-AD96-4CD8-8A67-C2493D558EC0} = {F92731CC-0237-414A-B08F-C2E96873730B}
+		{8FF94DF6-03AA-40A9-98C9-68382B0BBF9C} = {F92731CC-0237-414A-B08F-C2E96873730B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76FEC418-FBEC-4B41-B14D-3B1FBF848FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76FEC418-FBEC-4B41-B14D-3B1FBF848FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76FEC418-FBEC-4B41-B14D-3B1FBF848FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76FEC418-FBEC-4B41-B14D-3B1FBF848FBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2306AC5F-8407-4963-8C53-22C1EB7EF5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2306AC5F-8407-4963-8C53-22C1EB7EF5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2306AC5F-8407-4963-8C53-22C1EB7EF5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2306AC5F-8407-4963-8C53-22C1EB7EF5B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1370D78-AD96-4CD8-8A67-C2493D558EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1370D78-AD96-4CD8-8A67-C2493D558EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1370D78-AD96-4CD8-8A67-C2493D558EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1370D78-AD96-4CD8-8A67-C2493D558EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF94DF6-03AA-40A9-98C9-68382B0BBF9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF94DF6-03AA-40A9-98C9-68382B0BBF9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF94DF6-03AA-40A9-98C9-68382B0BBF9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF94DF6-03AA-40A9-98C9-68382B0BBF9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
